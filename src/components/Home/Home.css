@@ -1,0 +1,11 @@
+.middle-card{
+    margin-top: 250px;
+}
+.banar-area{
+    background: url(../../images/Bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}

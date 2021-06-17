@@ -1,0 +1,14 @@
+.nav-link{  
+    margin-right: 20px;
+    font-size: 21px;
+    color: black !important;
+}
+.main-btn{
+    background: orange;
+    border-radius: 5px;
+    padding: 11px 30px;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
