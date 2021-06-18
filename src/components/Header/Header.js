@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../images/logo.png";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
@@ -23,9 +24,10 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav  mb-2 mb-lg-0 ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+               <Link to="/home"> <span className="nav-link" >
                   Home
-                </a>
+                </span>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">

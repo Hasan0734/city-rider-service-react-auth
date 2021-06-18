@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import NoMatch from './components/NoMatch/NoMatch';
 import Login from './components/Login/Login';
+import SearchPage from './components/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login/>
+        </Route>
+        <Route path="/find-transport/:transportId">
+        <SearchPage></SearchPage>
         </Route>
         <Route exact path="/">
           <Home/>

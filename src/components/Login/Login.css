@@ -1,0 +1,46 @@
+.login-area{
+    width: 500px;
+    height: 410px;
+    border: 1px solid gray;
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+}
+.input-field{
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-radius: 0;
+}
+.submit-button{
+    color: white;
+    background: #fd713d;
+    margin-top: 20px;
+    padding: 12px;
+}
+.another-way{
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.or{
+    height: 1px;
+    background: gray;
+    width: 35%;
+}
+.continue-another{
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+}
+.btn-google{
+    width: 100px;
+}
+.btn-google img{
+    width: 40px;
+}

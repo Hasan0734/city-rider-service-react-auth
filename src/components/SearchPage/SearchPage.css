@@ -1,0 +1,25 @@
+.search-page {
+  border-top: 1px solid lightslategray;
+  margin-top: 25px;
+}
+.input-from {
+  width: 100%;
+  display: block;
+  margin: 12px 0;
+  border: none;
+  padding: 14px 10px;
+  border-radius: 4px;
+}
+.search-area{
+  padding: 26px 20px;
+  background: #f2f1f1fc;
+  border-radius: 10px;
+}
+.submit-btn {
+  margin-top: 15px;
+  background: #fd713d;
+  color: #ffffff;
+}
+.error {
+  color: red;
+}

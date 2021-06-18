@@ -1,0 +1,41 @@
+.address-area {
+  background: #fd713d;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}
+.destination {
+    margin-top: 12px;
+    width: 1px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.address-name{
+    margin-left: 18px;
+
+}
+.address-name .first{
+   padding-bottom: 20px;
+}
+.point{
+    background: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: -7px;
+}
+.point-2{
+    margin-top: 41px;
+}
+.show-result {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.single-result{
+    background: #fff;
+    padding: 25px 18px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}

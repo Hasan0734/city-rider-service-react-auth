@@ -4,7 +4,7 @@
     border-radius: 6px;
     cursor: pointer;
 }
-.card img{
+.card .img{
     height: 120px;
     width: 50%;
 }
