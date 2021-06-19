@@ -9,7 +9,7 @@ const Transports = (props) => {
     
   }
   return (
-    <div className="col-md-3 mt-">
+    <div className="col-md-3 mt-4">
       <div onClick={() => handleClick(id)} className="card cars d-flex align-items-center justify-content-center">
         <div>
         <div className="d-flex justify-content-center">
