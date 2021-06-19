@@ -127,7 +127,7 @@ const Login = () => {
                 <Link className="text-danger">Forgot Password</Link>
               </div>
             )}
-            <p className="text-danger">Error: {user.error}</p>
+            <p className="text-danger"> {user.error}</p>
             <input className="form-control submit-button" type="submit" />
             {newUser ? (
               <p className="text-center mt-3">
