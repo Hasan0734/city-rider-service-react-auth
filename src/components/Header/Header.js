@@ -7,12 +7,12 @@ const Header = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   
   return (
-    <div>
+    <div className="header">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <img className="w-25" src={logo} alt="" />
-          </a>
+          <Link to='/home' className="navbar-brand" >
+            City Rider Service
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -33,9 +33,9 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="destination" className="nav-link" >
                   Destination
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link " href="#">
@@ -49,7 +49,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 {
-                loggedInUser.signedInUser && <span className="nav-link">{loggedInUser.name}</span> }
+                loggedInUser.signedInUser && <span className="nav-link user-name">{loggedInUser.name}</span> }
               </li>
               <li className="nav-item"> {loggedInUser.signedInUser ? <Link onClick={() => setLoggedInUser({})} className="btn main-btn" href="#">Sign Out</Link>
               :<Link to="/login" className="btn main-btn" href="#">Login</Link>}</li>

@@ -1,6 +1,6 @@
-.login-area{
-    width: 500px;
-    
+
+.login-box{
+    width: 100%;
     border: 1px solid gray;
     padding: 30px;
     margin: auto;
@@ -21,7 +21,7 @@
     padding: 12px;
 }
 .another-way{
-    width: 500px;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
 }
 .continue-another{
     cursor: pointer;
-    width: 394px;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -49,3 +49,9 @@
     width: 40px;
     margin-right: 70px;
 }
+@media only screen and (min-width: 1400px) {
+    .login-area{
+        width: 40%;
+        margin: auto;
+    }
+  }

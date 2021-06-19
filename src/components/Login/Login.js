@@ -4,9 +4,13 @@ import { useForm } from "react-hook-form";
 import "./Login.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import googleIcon from "../../images/google.png";
-import { googleSignIn, initializedApp, signInWithEmailPassword } from "./loginManager";
+import {
+  createUserEmalAndPassword,
+  googleSignIn,
+  initializedApp,
+  signInWithEmailPassword,
+} from "./loginManager";
 import { UserContext } from "../../App";
-import CreateAccount from "../CreateAccount/CreateAccount";
 
 const Login = () => {
   const [newUser, setNewUser] = useState(false);
@@ -14,7 +18,9 @@ const Login = () => {
     signedInUser: false,
     name: "",
     email: "",
+    error: ''
   });
+  console.log(user.error)
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
@@ -25,56 +31,92 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const {email, password} = data
-    signInWithEmailPassword(email, password)
-    .then(res => {
-      setLoggedInUser(res)
-      setUser(res)
-      history.replace(from);
-    })
+    const { name, email, password1, password2 } = data;
+    if (newUser) {
+      let matchedPassword;
+      if (password1 === password2) {
+        matchedPassword = password2;
+      }
+      createUserEmalAndPassword(name, email, matchedPassword).then((res) => {
+      handleResponse(res)
+      });
+    }
+    signInWithEmailPassword(email, password1).then((res) => {
+      handleResponse(res)
+    });
   };
 
   initializedApp();
   const handleGoogleSign = () => {
     googleSignIn().then((res) => {
-      const user = res;
-      setUser(user);
-      setLoggedInUser(user);
-      history.replace(from);
+     handleResponse(res)
+
     });
   };
+  const handleResponse =(res) => {
+    setUser(res);
+    setLoggedInUser(res);
+    history.replace(from);
+  }
   return (
-    <div>
+    <div className="login-page container">
       <Header></Header>
-      <div>
-        <div className="login-area">
+      <div className="login-area">
+        <div className="login-box">
           <h2>{newUser ? "Create an account" : "Login"}</h2>
+          <form className="input-form" onSubmit={handleSubmit(onSubmit)}>
+            {newUser && (
+              <div>
+                <input
+                  type="text"
+                  className="form-control input-field"
+                  {...register("name", { required: true })}
+                  placeholder="Name"
+                />
+                {errors.name && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </div>
+            )}
+            <input
+              type="email"
+              className="form-control input-field"
+              {...register("email", {
+                required: true,
+                pattern: /\S+@\S+\.\S+/,
+              })}
+              placeholder="Email"
+            />
+            {errors.email && (
+              <span className="text-danger">This field is required</span>
+            )}
+            <input
+              type="password"
+              className="form-control input-field"
+              {...register("password1", { required: true, pattern: /\d{1}./ })}
+              placeholder="Password"
+            />
+            {errors.password1 && (
+              <span className="text-danger">This field is required</span>
+            )}
+            {newUser && (
+              <div>
+                <input
+                  type="password"
+                  className="form-control input-field"
+                  {...register("password2", {
+                    required: true,
+                    pattern: /\d{1}./,
+                  })}
+                  placeholder="Confirm Password"
+                />
+                {errors.password2 && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </div>
+            )}
 
-          {newUser ? (
-            <CreateAccount newUserState={[newUser, setNewUser]} userState={[user, setUser]}></CreateAccount>
-          ) : (
-            <form className="input-form" onSubmit={handleSubmit(onSubmit)}>
-              <input
-                type="email"
-                className="form-control input-field"
-                {...register("email", {
-                  required: true,
-                  pattern: /\S+@\S+\.\S+/,
-                })}
-                placeholder="Email"
-              />
-              {errors.email && (
-                <span className="text-danger">This field is required</span>
-              )}
-              <input
-                type="password"
-                className="form-control input-field"
-                {...register("password", { required: true, pattern: /\d{1}./ })}
-                placeholder="Password"
-              />
-              {errors.email && (
-                <span className="text-danger">This field is required</span>
-              )}
+            {newUser === false && (
               <div className="d-flex justify-content-between mt-4">
                 <div className="d-flex align-items-center">
                   <input type="checkbox" name="remember" id="" />
@@ -84,15 +126,31 @@ const Login = () => {
                 </div>
                 <Link className="text-danger">Forgot Password</Link>
               </div>
-              <input className="form-control submit-button" type="submit" />
+            )}
+            <p className="text-danger">Error: {user.error}</p>
+            <input className="form-control submit-button" type="submit" />
+            {newUser ? (
+              <p className="text-center mt-3">
+                Already have an account?{" "}
+                <Link
+                  onClick={() => setNewUser(!newUser)}
+                  className="text-danger"
+                >
+                  Login
+                </Link>
+              </p>
+            ) : (
               <p className="text-center mt-3">
                 Don't have an account?{" "}
-                <Link onClick={() => setNewUser(!newUser)} className="text-danger">
+                <Link
+                  onClick={() => setNewUser(!newUser)}
+                  className="text-danger"
+                >
                   Create an account
                 </Link>
               </p>
-            </form>
-          )}
+            )}
+          </form>
         </div>
         <div className="another-way my-3">
           <div className="or"></div>
@@ -101,7 +159,7 @@ const Login = () => {
         </div>
         <div onClick={handleGoogleSign} className="continue-another">
           <div className="btn-google">
-            <img src={googleIcon} alt="" />{" "}
+            <img src={googleIcon} alt="" />
             <span className="text-center">Continue with Google</span>
           </div>
         </div>

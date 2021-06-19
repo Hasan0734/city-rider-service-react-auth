@@ -9,8 +9,8 @@ const Transports = (props) => {
     
   }
   return (
-    <div className="col-md-3">
-      <div onClick={() => handleClick(id)} className="card d-flex align-items-center justify-content-center">
+    <div className="col-md-3 mt-">
+      <div onClick={() => handleClick(id)} className="card cars d-flex align-items-center justify-content-center">
         <div>
         <div className="d-flex justify-content-center">
           <img className="img" src={img} alt="" />

@@ -12,6 +12,7 @@ import NoMatch from './components/NoMatch/NoMatch';
 import Login from './components/Login/Login';
 import SearchPage from './components/SearchPage/SearchPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Destination from './components/Destination/Destination';
 
 export const UserContext = createContext()
 function App() {
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <PrivateRoute path="/find-transport/:transportId">
         <SearchPage></SearchPage>
+        </PrivateRoute>
+        <PrivateRoute path="/destination">
+          <Destination></Destination>
         </PrivateRoute>
         <Route exact path="/">
           <Home/>

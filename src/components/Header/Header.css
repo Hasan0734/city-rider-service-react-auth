@@ -12,3 +12,9 @@
     color: white;
     font-size: 18px;
 }
+.navbar-brand{
+    width: 30%;
+}
+.user-name{
+    font-weight: bold;
+}
