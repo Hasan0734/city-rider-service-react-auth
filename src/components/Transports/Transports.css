@@ -1,19 +1,19 @@
-.card{
-    height: 290px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.card {
+  height: 290px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
-.card .img{
-    height: 120px;
-    width: 50%;
+.card .img {
+  height: 120px;
+  width: 50%;
 }
-.cars{
-    background: #412192;
-    transition: 0.9s all;
-    color: white;
+.cars {
+  background: #412192;
+  transition: 0.9s all;
+  color: white;
 }
-.cars:hover{
-    transform: scale(1.05);
-    background: #673ab7;
+.cars:hover {
+  transform: scale(1.05);
+  background: #673ab7;
 }

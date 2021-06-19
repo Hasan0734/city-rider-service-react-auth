@@ -18,9 +18,9 @@ const Login = () => {
     signedInUser: false,
     name: "",
     email: "",
-    error: ''
+    error: "",
   });
-  console.log(user.error)
+  console.log(user.error);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
@@ -38,26 +38,25 @@ const Login = () => {
         matchedPassword = password2;
       }
       createUserEmalAndPassword(name, email, matchedPassword).then((res) => {
-      handleResponse(res)
+        handleResponse(res);
       });
     }
     signInWithEmailPassword(email, password1).then((res) => {
-      handleResponse(res)
+      handleResponse(res);
     });
   };
 
   initializedApp();
   const handleGoogleSign = () => {
     googleSignIn().then((res) => {
-     handleResponse(res)
-
+      handleResponse(res);
     });
   };
-  const handleResponse =(res) => {
+  const handleResponse = (res) => {
     setUser(res);
     setLoggedInUser(res);
     history.replace(from);
-  }
+  };
   return (
     <div className="login-page container">
       <Header></Header>
