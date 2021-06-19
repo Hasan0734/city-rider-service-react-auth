@@ -1,14 +1,15 @@
 .login-area{
     width: 500px;
-    height: 410px;
+    
     border: 1px solid gray;
     padding: 30px;
     margin: auto;
     margin-top: 50px;
+    border-radius: 6px;
 }
 .input-field{
     margin-top: 20px;
-    padding: 15px;
+    padding: 15px 1px;
     border: none;
     border-bottom: 1px solid gray;
     border-radius: 0;
@@ -32,15 +33,19 @@
     width: 35%;
 }
 .continue-another{
-    width: 500px;
+    cursor: pointer;
+    width: 394px;
     margin: auto;
     display: flex;
     align-items: center;
-    border: 1px solid gray;
+    padding: 6px;
+    border: 1px solid #c3bfbf;
+    border-radius: 30px;
 }
 .btn-google{
-    width: 100px;
+    
 }
 .btn-google img{
     width: 40px;
+    margin-right: 70px;
 }

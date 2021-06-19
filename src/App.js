@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import './App.css'
@@ -11,12 +11,15 @@ import {
 import NoMatch from './components/NoMatch/NoMatch';
 import Login from './components/Login/Login';
 import SearchPage from './components/SearchPage/SearchPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
+export const UserContext = createContext()
 function App() {
+ 
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
-    <div>
+    <UserContext.Provider value = {[loggedInUser, setLoggedInUser]}>
       <Router>
-      
       <Switch>
         <Route path="/home">
           <Home />
@@ -24,9 +27,9 @@ function App() {
         <Route path="/login">
           <Login/>
         </Route>
-        <Route path="/find-transport/:transportId">
+        <PrivateRoute path="/find-transport/:transportId">
         <SearchPage></SearchPage>
-        </Route>
+        </PrivateRoute>
         <Route exact path="/">
           <Home/>
         </Route>
@@ -36,7 +39,7 @@ function App() {
       </Switch>
       </Router>
     
-    </div>
+    </UserContext.Provider>
   );
 }
 
